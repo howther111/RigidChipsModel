@@ -1,0 +1,388 @@
+// [RCD] 
+Val
+{
+	AIRBRAKE(default=0, max=75, step=5)
+	AR_1(default=0, min=-30, max=0)
+	AR_2(default=-30, min=-30, max=0)
+	AR_3(default=-30, min=-30, max=0)
+	AR_4(default=-30, min=-30, max=0)
+	AR_5(default=-30, min=-30, max=0)
+	AR_6(default=-30, min=-30, max=0)
+	BRAKE(default=0, max=150, step=50)
+	COL_TEAM(default=333333333)
+	COUNT(default=0, max=14)
+	ENGINE(default=0, min=-40000, max=360000)
+	FIRE_1(default=0, max=50000, step=50000)
+	FIRE_2(default=0, max=50000, step=50000)
+	FIRE_3(default=0, max=50000, step=50000)
+	FIRE_4(default=0, max=50000, step=50000)
+	FIRE_5(default=0, max=50000, step=50000)
+	FIRE_6(default=0, max=50000, step=50000)
+	FR_1(default=0, max=30)
+	FR_2(default=30, max=30)
+	FR_3(default=30, max=30)
+	FR_4(default=30, max=30)
+	FR_5(default=30, max=30)
+	FR_6(default=30, max=30)
+	GEAR(default=1, min=-1, max=1)
+	LEG(default=90, min=90, max=180, step=3)
+	LEG2(default=120, min=30, max=120, step=3)
+	LW1(default=0, min=-10, max=10)
+	LW2(default=0, min=-10, max=10)
+	MUKI(default=0, min=-90, max=90, step=5)
+	PITCH(default=40, min=40, max=85)
+	RA(default=0, min=-30, max=30, step=1)
+	RW1(default=0, min=-10, max=10)
+	RW2(default=0, min=-10, max=10)
+	TATE(default=0, min=-30, max=30, step=5)
+	YOKO(default=0, min=-10, max=10, step=1)
+	ZOOM(default=15, min=5, max=90)
+}
+Key
+{
+	7:ENGINE(step=-10000)
+	8:ZOOM(step=-5)
+	9:ZOOM(step=5)
+	10:AIRBRAKE(step=5), BRAKE(step=50)
+	14:ENGINE(step=10000)
+	15:MUKI(step=5)
+	16:MUKI(step=-5)
+}
+Body
+{
+	Core(color=#400000, user2=801) {
+		S:RudderF(angle=MUKI, option=1, color=#800000) {
+			S:TrimF(angle=90, option=1, color=#808080) {
+				W:Rudder(angle=-90, color=COL_TEAM) {
+					W:Frame(option=1, color=#808080) {
+						W:Chip(angle=RA, color=#000000) {
+							S:Chip(color=COL_TEAM) { }
+						}
+						S:Rudder(angle=-120, color=#800000, spring=0.1, damper=0.1) {
+							E:RLW(angle=RA, brake=BRAKE, color=#000000) { }
+							N:Cowl(color=#400000) { }
+						}
+						W:Trim(angle=90, color=#000000) {
+							S:Trim(angle=-TATE, color=COL_TEAM) {
+								S:Cowl(effect=#F0FB, name=LEFT) { }
+								E:Rudder(angle=-60, color=COL_TEAM) { }
+							}
+							N:Trim(angle=TATE, color=COL_TEAM) {
+								N:Cowl(effect=#F0FB, name=RIGHT) { }
+								E:Rudder(angle=60, color=COL_TEAM) { }
+							}
+						}
+					}
+				}
+			}
+			N:Frame(angle=15, option=1) {
+				N:Frame(angle=-15, option=1, color=#000000) {
+					S:Frame(angle=30, option=1) {
+						S:Frame(angle=-30, option=1) {
+							S:Chip(angle=AIRBRAKE, color=#808080) {
+								S:Cowl(effect=#F0FB, name=BACK) { }
+							}
+							S:Chip(angle=-AIRBRAKE, color=#808080) { }
+							N:Trim(color=#400000, name=4) {
+								N:Frame(angle=FR_1, option=1) {
+									N:Arm(angle=AR_1, power=FIRE_1, option=50000, color=#000000, name=1) { }
+								}
+								N:Frame(angle=FR_2, option=1) {
+									N:Arm(angle=AR_2, power=FIRE_2, option=50000, color=#000000, name=2) { }
+								}
+								N:Frame(angle=FR_3, option=1) {
+									N:Arm(angle=AR_3, power=FIRE_3, option=50000, color=#000000, name=3) { }
+								}
+								N:Frame(angle=FR_4, option=1) {
+									N:Arm(angle=AR_4, power=FIRE_4, option=50000, color=#000000) { }
+								}
+								N:Frame(angle=FR_5, option=1) {
+									N:Arm(angle=AR_5, power=FIRE_5, option=50000, color=#000000, name=5) { }
+								}
+								N:Frame(angle=FR_6, option=1) {
+									N:Arm(angle=AR_6, power=FIRE_6, option=50000, color=#000000, name=6) { }
+								}
+								N:Cowl(effect=#F0FB, name=FRONT) { }
+								W:Trim(angle=LW2, color=#800000, name=LW_2) {
+									W:Trim(angle=LW1, color=#800000, name=LW_1) {
+										W:Trim(angle=YOKO, color=#800000, name=LW) {
+											W:Cowl(option=5, color=#400000) { }
+										}
+										W:Frame(angle=LEG) {
+											W:RudderF(angle=LEG2, spring=0.1, damper=0.1) {
+												S:RLW(brake=BRAKE, color=#000000) { }
+											}
+										}
+									}
+									S:Rudder(angle=-80, color=#800000) {
+										N:Cowl(color=#400000) {
+											N:Cowl(option=5, color=#400000) { }
+											E:Cowl(option=3, color=#400000) {
+												S:Cowl(color=#400000) { }
+											}
+										}
+									}
+								}
+								E:Trim(angle=RW2, color=#800000, name=RW_2) {
+									E:Trim(angle=RW1, color=#800000, name=RW_1) {
+										E:Trim(angle=YOKO, color=#800000, name=RW) {
+											E:Cowl(option=5, color=#400000) { }
+										}
+										E:Frame(angle=LEG) {
+											E:RudderF(angle=-LEG2, spring=0.1, damper=0.1) {
+												S:RLW(brake=BRAKE, color=#000000) { }
+											}
+										}
+									}
+									S:Rudder(angle=80, color=#800000) {
+										N:Cowl(color=#400000) {
+											N:Cowl(option=5, color=#400000) { }
+											W:Cowl(option=4, color=#400000) {
+												S:Cowl(color=#400000) { }
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					N:Cowl(angle=180, color=#400000) {
+						W:Cowl(angle=-90, color=#400000) {
+							W:Cowl(angle=-90, color=#400000) {
+								W:Cowl(angle=-90, color=#400000) {
+									N:Cowl(color=#400000) {
+										E:Cowl(angle=-90, color=#400000) {
+											E:Cowl(angle=-90, color=#400000) {
+												S:Cowl(color=#400000) { }
+											}
+										}
+										N:Cowl(color=#400000) {
+											E:Cowl(angle=-90, color=#400000) {
+												E:Cowl(angle=-90, color=#400000) {
+													S:Cowl(color=#400000) { }
+													E:Cowl(angle=-90, color=#400000) { }
+												}
+												S:Cowl(angle=20, color=#400000) {
+													S:Cowl(angle=-90, color=#000000) {
+														E:Cowl(angle=-90, color=#400000) { }
+														W:Cowl(angle=-90, color=#400000) { }
+													}
+												}
+												N:Cowl(angle=-5) {
+													E:Cowl(angle=-90) {
+														S:Cowl(color=#400000) { }
+														E:Cowl(angle=-90) {
+															S:Cowl(angle=20, color=#400000) {
+																S:Cowl(angle=-15, color=#000000, effect=#A0FB) {
+																	S:Cowl(angle=-45, color=#000000, effect=#A0FB) { }
+																	E:Cowl(angle=-90, color=#000000, effect=#A0FB) {
+																		S:Cowl(option=4, color=#000000, effect=#A0FB) { }
+																	}
+																	W:Cowl(angle=-90, color=#000000, effect=#A0FB) {
+																		S:Cowl(option=3, color=#000000, effect=#A0FB) { }
+																	}
+																}
+																W:Cowl(angle=-90, color=#000000, effect=#A0FB) { }
+																E:Cowl(angle=-90, color=#000000, effect=#A0FB) { }
+															}
+															E:Cowl(angle=-90) {
+																N:Cowl(angle=-10, color=#400000) {
+																	N:Cowl(angle=-10, color=#400000) { }
+																}
+															}
+														}
+														N:Cowl(angle=-10, color=#400000) {
+															N:Cowl(angle=-10, color=#400000) { }
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					N:RLW(angle=90, power=ENGINE, color=#000000, effect=2) {
+						S:Trim(angle=-PITCH, color=#808040) { }
+						N:Trim(angle=-PITCH, color=#808040) { }
+					}
+				}
+			}
+		}
+	}
+}
+Lua
+{
+require("cel/science/BasePhysic.lua")	--これが例の角速度その他を求めるLua　借り物
+Base = BasePhysic.new(CN_BASE)		--角速度を求めるための準備　「CN_BASE」はChip名　現在はコア
+
+LimitAmmo = 0		--自機の持つ残り弾薬ポイント。残弾表示やフラグに使ってください。
+LimitAmmoMax = 0;
+isJetPlaneLimitAmmo = false--ジェット機ならtrueに汁
+isLimitAmmoInitialized = false;--内部的な初期化フラグ。いじったらだめーよｗ
+Cost100k = 12		--100k(Option=100000)以上のARMの弾薬コスト
+Cost50k = 2		--50k以上100k未満の弾薬コスト
+ListChipType = {}	--ARMのチップ番号を格納
+ArmCostList = {} --発見されたArmのコストを順に収納
+function LimitAmmoRegulation()	--弾薬制限関数
+	--初期設定
+	if not isLimitAmmoInitialized then
+		--重量に応じて弾薬ポイントを決定
+		if isJetPlaneLimitAmmo then
+			LimitAmmo = 1200
+		else
+			if _WEIGHT() >= 1100 then
+				LimitAmmo = 350
+			end
+		end
+		LimitAmmoMax= LimitAmmo
+		local chipNum = _CHIPS() - 1
+		for i = 1, chipNum do
+			--ARMチェック
+			if _TYPE(i) == 10 then
+				--50kの場合、100kの場合でそれぞれ弾薬コストを格納
+				if _OPTION(i) == 50000 then
+					table.insert(ListChipType, i)
+					table.insert(ArmCostList, Cost50k)
+				elseif _OPTION(i) >= 100000 then
+					table.insert(ListChipType, i)
+					table.insert(ArmCostList, Cost100k)
+				end
+			end 
+		end
+		isLimitAmmoInitialized = true
+	elseif _TICKS() > 150 then
+		--発射カウント
+		local n = table.getn(ListChipType)
+		for i = 1, n do
+			--発射判定
+			if _E(ListChipType[i]) == 0 and _TOP(ListChipType[i]) == 0 then
+				LimitAmmo = LimitAmmo - ArmCostList[i]	--弾薬ポイントから弾薬コストを減算
+			end
+		end
+		local h = _H(0);
+		local speed = _VZ(0);
+		if (0 < h and h < 2) and math.abs(speed) < 1.5 then
+			if isJetPlaneLimitAmmo then
+				LimitAmmo = LimitAmmo + 1;
+			else
+				LimitAmmo = LimitAmmo + 0.5;
+			end
+			if LimitAmmo > LimitAmmoMax then LimitAmmo = LimitAmmoMax; end
+		end
+	end
+end
+
+
+function main()		--メイン
+
+LimitAmmoRegulation()	--弾薬制限関数
+
+	Base:Renew()	--これも角速度その他を求めるための準備
+			--「Base.wx/wy/wz」が角速度
+--[[
+※矢印＝飛行機
+　北
+　Z軸
+　│
+─↑─X軸　
+　│
+　南
+(上から飛行機を見た図)
+　上
+　Y軸
+　│
+─→─Z軸
+　│
+　下
+(横から飛行機を見た図)
+
+・おおざっぱな説明
+機首が下を向こうとした場合
+この方向の角速度
+　　 ＼
+　→　│
+　　 〆
+(横からｒｙ)
+x軸なので今回はBase.wxの数値がマイナス(正面から見て下向きの角速度)になる
+エレベータにこの数値を入れてAngleがマイナスなら上向きに機首が上がるようにする
+
+その結果
+1.下向き角速度発生
+2.Base.wxがマイナスに
+3.エレベータが動き、機首が上を向こうとする動作をする
+4.下向き角速度が解消され、まっすぐ飛ぶ
+
+	↓これを3つ分やってます
+]]
+
+	TATE   =    Base.wx*10 + (_KEY(0)-_KEY(1))*30 
+	YOKO   =    Base.wz*5 + (_KEY(2)-_KEY(3))*10
+	RA = --[[Base.wy*3 +]] (_KEY(4)-_KEY(6))*-15
+
+--[[アナログ対応
+	
+	TATE=TATE+_ANALOG(1)/100
+	YOKO=YOKO+_ANALOG(0)/100
+	RA=RA+_ANALOG(2)/-200
+]]
+
+out(1,_FPS())
+vel=-_VZ(0)*3.6
+out(2,vel,"km/h")
+out(3,"Weight=",_WEIGHT())
+out(3,"Power=",ENGINE)
+out(4,"Ammo=",LimitAmmo)
+
+_ZOOM(ZOOM)
+        --２Ｄ照準
+　　　　_SETCOLOR(0)
+        _MOVE2D(0.1,0.1) _LINE2D(0.01,0.01)
+        _MOVE2D(-0.1,0.1) _LINE2D(-0.01,0.01)
+        _MOVE2D(-0.1,-0.1) _LINE2D(-0.01,-0.01)
+        _MOVE2D(0.1,-0.1) _LINE2D(0.01,-0.01)
+
+ _SETCOLOR(16777215)
+ _MOVE3D(_X(0),_Y(0),_Z(0))
+ _LINE3D(_X(0)+_ZX(0)*-1000,_Y(0)+_ZY(0)*-1000,_Z(0)+_ZZ(0)*-1000)
+
+
+--30mm機関銃「Valcast2000」
+    if _KEY(5)==1 and COUNT<12 then COUNT=COUNT+1 end
+    if COUNT==12 then COUNT=0 end
+    if COUNT==0 then AR_6=-30 FR_6=30 AR_1=0 FR_1=0 end
+    if COUNT==1 and _KEY(5)>0 then FIRE_1=50000 end
+    if COUNT==2 then AR_1=-30 FR_1=30 AR_2=0 FR_2=0 end
+    if COUNT==3 and _KEY(5)>0 then FIRE_2=50000 end
+    if COUNT==4 then AR_2=-30 FR_2=30 AR_3=0 FR_3=0 end
+    if COUNT==5 and _KEY(5)>0 then FIRE_3=50000 end
+    if COUNT==6 then AR_3=-30 FR_3=30 AR_4=0 FR_4=0 end
+    if COUNT==7 and _KEY(5)>0 then FIRE_4=50000 end
+    if COUNT==8 then AR_4=-30 FR_4=30 AR_5=0 FR_5=0 end
+    if COUNT==9 and _KEY(5)>0 then FIRE_5=50000 end
+    if COUNT==10 then AR_5=-30 FR_5=30 AR_6=0 FR_6=0 end
+    if COUNT==11 and _KEY(5)>0 then FIRE_6=50000 end
+    if LimitAmmo<=0 then COUNT=13 end
+    if LimitAmmo>0 and COUNT==13 then COUNT=0 
+    AR_1=-30 FR_1=30 AR_2=-30 FR_2=30 AR_3=-30 FR_3=30 AR_4=-30 FR_4=30 AR_5=-30 FR_5=30 AR_6=-30 FR_6=30 end
+
+--試作一号エンジン「Easyheart Mk.1」
+    PERA=-_VZ(0)*0.4
+    PITCH=40+PERA
+
+--主翼ダメコン
+    if LW==-1 then LW1=YOKO end
+    if RW==-1 then RW1=YOKO end
+    if LW_1==-1 then LW2=YOKO end
+    if RW_1==-1 then RW2=YOKO end
+
+--脚
+    if _KEYDOWN(13)>0 then GEAR=GEAR*-1 end
+    if GEAR==-1 then LEG=LEG+3 LEG2=LEG2-3 end
+
+    if _KEYDOWN(12)>0 then ENGINE=0 end 
+
+end
+
+}

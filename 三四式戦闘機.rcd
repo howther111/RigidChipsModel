@@ -1,0 +1,463 @@
+// [RCD] 
+Val
+{
+	AB(default=0, max=75, step=5)
+	ARM1(default=0, max=1600000, step=1600000)
+	ARM2(default=0, max=1600000, step=1600000)
+	ARM3(default=0, max=1600000, step=1600000)
+	BRAKE(default=0, max=50, step=5)
+	C(default=#114514)
+	COL_TEAM(default=#893893)
+	ENGINE(default=0, min=-60000, max=360000)
+	GEAR(default=75, min=75, max=165)
+	GEAR2(default=120, max=120)
+	GEARS(default=-1, min=-1, max=1)
+	GUN(default=0, max=5, step=5)
+	PERA(default=45, min=35, max=85)
+	RAD(default=0, min=-30, max=30)
+	RAM(default=0, min=-30, max=30, step=5)
+	TAM(default=0, min=-30, max=30, step=5)
+	TATE(default=0, min=-30, max=30)
+	YOKO(default=0, min=-30, max=30)
+	YOM(default=0, min=-30, max=30, step=5)
+	ZOOM(default=50, min=10, max=80)
+}
+Key
+{
+}
+Body
+{
+	Core(color=COL_TEAM) {
+		S:TrimF(angle=90, option=1) {
+			W:Rudder(angle=-90, color=c) {
+				W:Frame(color=c) {
+					W:RudderF(angle=30, color=c) {
+						W:Wheel(angle=RAD, brake=BRAKE, color=#000000) { }
+					}
+					W:Frame(color=c) {
+						W:Chip(color=c) {
+							W:Chip(angle=RAD, color=c) {
+								E:Rudder(angle=90, color=c) { }
+								E:Rudder(angle=-90, color=c) { }
+							}
+							W:Cowl(angle=165, color=c) {
+								W:Cowl(angle=5, color=c) {
+									W:Cowl(angle=5, color=COL_TEAM) {
+										W:Cowl(angle=5, option=5, color=c) { }
+									}
+								}
+							}
+							W:Cowl(angle=-165, color=c) {
+								W:Cowl(angle=-5, color=c) {
+									W:Cowl(angle=-5, color=COL_TEAM) {
+										W:Cowl(angle=-5, option=5, color=c) { }
+									}
+								}
+							}
+							S:Cowl(option=3, color=c) {
+								W:Cowl(color=c) { }
+							}
+						}
+						W:Trim(angle=-90, color=c) {
+							N:TrimF(option=1) {
+								W:Chip(angle=TATE, color=c) {
+									N:Rudder(angle=-30, color=c) { }
+									N:Cowl(option=5, color=c) { }
+								}
+							}
+							S:TrimF(option=1) {
+								W:Chip(angle=TATE, color=c) {
+									S:Rudder(angle=30, color=c) { }
+									S:Cowl(option=5, color=c) { }
+								}
+							}
+							N:Cowl(option=4, color=c) { }
+							S:Cowl(option=3, color=c) { }
+							E:Cowl(option=5, color=c) { }
+						}
+					}
+				}
+				W:Chip(angle=-AB, color=COL_TEAM) { }
+				W:Chip(angle=AB, color=COL_TEAM) { }
+				E:Trim(angle=90, color=c) {
+					E:Cowl(angle=90, color=#000000) {
+						N:Cowl(angle=90, color=c) {
+							S:Cowl(color=c) { }
+						}
+						E:Cowl(angle=-90, color=c) {
+							W:Cowl(color=c) {
+								W:Cowl(angle=-30, color=c) {
+									S:Cowl(angle=-90, color=c) { }
+									N:Cowl(angle=-90, color=c) { }
+									W:Cowl(angle=15, color=c) {
+										W:Cowl(option=5, color=c) { }
+									}
+								}
+								E:Cowl(color=c) { }
+							}
+						}
+						S:Cowl(angle=-90, color=c) { }
+						S:Cowl(angle=90, color=c) {
+							N:Cowl(color=c) { }
+						}
+					}
+					E:Jet(angle=-15, color=#000000) {
+						E:Chip(angle=15, color=#000000) {
+							E:Arm(power=ARM3, option=50000, color=#000000, name=1) { }
+							E:RLW(angle=90, power=-ENGINE, color=#000000, effect=2) {
+								N:Trim(angle=PERA, color=#000000) { }
+								S:Trim(angle=PERA, color=#000000) { }
+							}
+							N:Jet(angle=90, color=c) {
+								E:Arm(power=ARM2, option=50000, color=#000000, name=2) { }
+							}
+							S:Jet(angle=90, color=c) {
+								E:Arm(power=ARM2, option=50000, color=#000000, name=3) { }
+							}
+							W:Cowl(angle=90, color=#000000) {
+								W:Cowl(angle=90, color=c) { }
+							}
+							W:Cowl(angle=-30, color=#000000, effect=#A0FB) {
+								N:Cowl(angle=90, option=4, color=#000000, effect=#A0FB) { }
+								S:Cowl(angle=90, option=3, color=#000000, effect=#A0FB) { }
+								W:Cowl(angle=30, color=#000000, effect=#A0FB) {
+									N:Cowl(angle=90, option=5, color=#000000, effect=#A0FB) { }
+									S:Cowl(angle=90, option=5, color=#000000, effect=#A0FB) { }
+									W:Cowl(angle=15, color=c) {
+										N:Cowl(angle=90, option=3, color=c) { }
+										S:Cowl(angle=90, option=4, color=c) { }
+										W:Cowl(color=c) {
+											W:Cowl(option=5, color=c) { }
+										}
+									}
+								}
+							}
+						}
+						N:Cowl(angle=90, color=c) { }
+						S:Cowl(angle=90, color=c) { }
+					}
+				}
+			}
+			W:Chip(angle=-75, color=c) {
+				W:Chip(color=c) {
+					W:Chip(angle=-20, color=C) {
+						W:Trim(angle=YOKO, color=COL_TEAM) {
+							W:Trim(color=c) { }
+						}
+						N:Arm(power=ARM1, option=50000, color=#000000, name=4) { }
+						S:Cowl(option=4, color=c) { }
+					}
+					W:Frame(angle=GEAR) {
+						N:RudderF(angle=GEAR2, option=1) {
+							S:Wheel(brake=BRAKE, color=#000000) { }
+						}
+					}
+					S:Cowl(color=c) { }
+				}
+				S:Cowl(color=c) { }
+				N:Cowl(option=3, color=c) { }
+			}
+			W:Chip(angle=75, color=c) {
+				W:Chip(color=c) {
+					W:Chip(angle=20, color=c) {
+						W:Trim(angle=YOKO, color=COL_TEAM) {
+							W:Trim(color=c) { }
+						}
+						N:Arm(power=ARM1, option=50000, color=#000000, name=5) { }
+						S:Cowl(option=4, color=c) { }
+					}
+					W:Frame(angle=-GEAR) {
+						N:RudderF(angle=GEAR2, option=1) {
+							S:Wheel(brake=BRAKE, color=#000000) { }
+						}
+					}
+					S:Cowl(color=c) { }
+				}
+				S:Cowl(color=c) { }
+				N:Cowl(option=3, color=c) { }
+			}
+		}
+	}
+}
+Lua
+{
+--角速度
+
+--[[
+基礎的な物理計算モジュール
+使い方
+core_m = BasePhysic.new(0)
+を最初にしといて
+OnFrameかmainの頭で
+core_m:Renew()
+をやる。
+あとはcore_m.lv○がローカルな○軸の速度
+core_m.la○が○軸の加速度
+core_m.w○が○軸角速度
+core_m.wa○が○軸角加速度
+]]
+BasePhysic = {}
+
+function BasePhysic.new(cn)
+	local self = {}
+	self.cn = cn
+	self.x,self.y,self.z = _X(cn),_Y(cn),_Z(cn)			--前F位置
+	self.gx,self.gy,self.gz = _GX(cn),_GY(cn),_GZ(cn)	--前F重心位置
+	self.lvx,self.lvy,self.lvz = _VX(cn),_VY(cn),_VZ(cn)--ローカル座標系な速度
+	self.vx,self.vy,self.vz = GetWVec(self.lvx,self.lvy,self.lvz,cn)	--グローバル座標系な速度
+	self.ax,self.ay,self.az = 0,0,0						--グローバルな加速度
+	self.lax,self.lay,self.laz = 0,0,0					--ローカルな加速度
+	self.lgvx,self.lgvy,self.lgvz = _VX(cn),_VY(cn),_VZ(cn)	--ローカル座標系な重心速度
+	self.gvx,self.gvy,self.gvz = GetWVec(self.lvx,self.lvy,self.lvz,cn)	--グローバル座標系な重心速度
+	self.gax,self.gay,self.gaz = 0,0,0					--グローバルな重心加速度
+	self.lgax,self.lgay,self.lgaz = 0,0,0				--ローカルな重心加速度
+	self.wx,self.wy,self.wz = GetWVec(_WX(cn),_WY(cn),_WZ(cn),cn)	--角速度
+	self.wax,self.way,self.waz = 0,0,0					--角加速度
+	self.xx,self.xy,self.xz = _XX(cn),_XY(cn),_XZ(cn)	--前F姿勢ベクトルX軸
+	self.yx,self.yy,self.yz = _YX(cn),_YY(cn),_YZ(cn)	--前F姿勢ベクトルY軸
+	self.zx,self.zy,self.zz = _ZX(cn),_ZY(cn),_ZZ(cn)	--前F姿勢ベクトルZ軸
+	return setmetatable(self,{__index = BasePhysic})
+end
+
+function BasePhysic:Renew()
+	local base = _BASE()
+	local x,y,z = _X(self.cn),_Y(self.cn),_Z(self.cn)
+	local gx,gy,gz = _GX(self.cn),_GY(self.cn),_GZ(self.cn)
+	local vx,vy,vz = base*(x-self.x),base*(y-self.y),base*(z-self.z)
+	local gvx,gvy,gvz = base*(gx-self.gx),base*(gy-self.gy),base*(gz-self.gz)
+	self.x,self.vx,self.ax = x,vx,base*(vx-self.vx)
+	self.y,self.vy,self.ay = y,vy,base*(vy-self.vy)
+	self.z,self.vz,self.az = z,vz,base*(vz-self.vz)
+	self.gx,self.gvx,self.gax = gx,gvx,base*(gvx-self.gvx)
+	self.gy,self.gvy,self.gay = gy,gvy,base*(gvy-self.gvy)
+	self.gz,self.gvz,self.gaz = gz,gvz,base*(gvz-self.gvz)
+	self.lvx,self.lvy,self.lvz = GetLVec(vx,vy,vz,self.cn)
+	self.lax,self.lay,self.laz = GetLVec(self.ax,self.ay,self.az,self.cn)
+	self.lgvx,self.lgvy,self.lgvz = GetLVec(gvx,gvy,gvz,self.cn)
+	self.lgax,self.lgay,self.lgaz = GetLVec(self.gax,self.gay,self.gaz,self.cn)
+	--ここまで速度と加速度、精度上げないとこんなもんですかね
+	local axis={{GetLVec(self.xx,self.xy,self.xz,self.cn)},
+				{GetLVec(self.yx,self.yy,self.yz,self.cn)},
+				{GetLVec(self.zx,self.zy,self.zz,self.cn)}}	--前Fの姿勢ベクトルを現状のﾛｰｶﾙﾍﾞｸﾄﾙに変換
+	local q={CalQuaternion(axis)}	--回転具合をクォータニオンにして
+	local wx,wy,wz=CalAvel(q)	--角速度に直す
+	wx,wy,wz=-wx*base,-wy*base,-wz*base
+	self.wx,self.wax,self.xx,self.xy,self.xz = wx,base*(wx-self.wx),_XX(self.cn),_XY(self.cn),_XZ(self.cn)
+	self.wy,self.way,self.yx,self.yy,self.yz = wy,base*(wy-self.wy),_YX(self.cn),_YY(self.cn),_YZ(self.cn)
+	self.wz,self.waz,self.zx,self.zy,self.zz = wz,base*(wz-self.wz),_ZX(self.cn),_ZY(self.cn),_ZZ(self.cn)
+end
+
+---------------------------------------
+
+-- ローカルベクトル→ワールドベクトル変換
+function GetWVec(lx,ly,lz,cn)
+	local wx=_XX(cn)*lx+_YX(cn)*ly+_ZX(cn)*lz
+	local wy=_XY(cn)*lx+_YY(cn)*ly+_ZY(cn)*lz
+	local wz=_XZ(cn)*lx+_YZ(cn)*ly+_ZZ(cn)*lz
+	return wx,wy,wz
+end
+
+-- ワールドベクトル→ローカルベクトル変換
+function GetLVec(wx,wy,wz,cn)
+	local lx=_XX(cn)*wx+_XY(cn)*wy+_XZ(cn)*wz
+	local ly=_YX(cn)*wx+_YY(cn)*wy+_YZ(cn)*wz
+	local lz=_ZX(cn)*wx+_ZY(cn)*wy+_ZZ(cn)*wz
+	return lx,ly,lz
+end
+-- 姿勢ベクトル→クォータニオン変換
+function CalQuaternion(v)
+	local xx,xy,xz=v[1][1],v[1][2],v[1][3]
+	local yx,yy,yz=v[2][1],v[2][2],v[2][3]
+	local zx,zy,zz=v[3][1],v[3][2],v[3][3]
+	local x=math.max(0,1+xx-yy-zz)/4
+	local y=math.max(0,1-xx+yy-zz)/4
+	local z=math.max(0,1-xx-yy+zz)/4
+	local w=math.max(0,1-x-y-z)
+	w,x,y,z=math.sqrt(w),math.sqrt(x),math.sqrt(y),math.sqrt(z)
+	if(zy-yz<0) then x=-x end
+	if(xz-zx<0) then y=-y end
+	if(yx-xy<0) then z=-z end
+	return w,-x,-y,-z
+end
+
+-- クォータニオンから角速度ベクトルを求める
+function CalAvel(q)
+	local s=math.sqrt(math.max(0,1-q[1]^2))
+	local c=math.acos(q[1])*2
+	local wx,wy,wz
+	if(s>0) then
+		c=c/s
+		wx,wy,wz=q[2]*c,q[3]*c,q[4]*c
+	else
+		wx,wy,wz=0,0,0
+	end
+	return wx,wy,wz
+end
+--↑これが例の角速度その他を求めるLua　借り物
+
+Base = BasePhysic.new(CN_BASE)		--角速度を求めるための準備　「CN_BASE」はChip名　現在はコア
+
+LimitAmmo = 0		--自機の持つ残り弾薬ポイント。残弾表示やフラグに使ってください。
+LimitAmmoMax = 0;
+isJetPlaneLimitAmmo = false--ジェット機ならtrueに汁
+isLimitAmmoInitialized = false;--内部的な初期化フラグ。いじったらだめーよｗ
+Cost100k = 12		--100k(Option=100000)以上のARMの弾薬コスト
+Cost50k = 2		--50k以上100k未満の弾薬コスト
+ListChipType = {}	--ARMのチップ番号を格納
+ArmCostList = {} --発見されたArmのコストを順に収納
+function LimitAmmoRegulation()	--弾薬制限関数
+	--初期設定
+	if not isLimitAmmoInitialized then
+		--重量に応じて弾薬ポイントを決定
+		if isJetPlaneLimitAmmo then
+			LimitAmmo = 1200
+		else
+			if _WEIGHT() >= 1100 then
+				LimitAmmo = 350
+			end
+		end
+		LimitAmmoMax= LimitAmmo
+		local chipNum = _CHIPS() - 1
+		for i = 1, chipNum do
+			--ARMチェック
+			if _TYPE(i) == 10 then
+				--50kの場合、100kの場合でそれぞれ弾薬コストを格納
+				if _OPTION(i) == 50000 then
+					table.insert(ListChipType, i)
+					table.insert(ArmCostList, Cost50k)
+				elseif _OPTION(i) >= 100000 then
+					table.insert(ListChipType, i)
+					table.insert(ArmCostList, Cost100k)
+				end
+			end 
+		end
+		isLimitAmmoInitialized = true
+	elseif _TICKS() > 150 then
+		--発射カウント
+		local n = table.getn(ListChipType)
+		for i = 1, n do
+			--発射判定
+			if _E(ListChipType[i]) == 0 and _TOP(ListChipType[i]) == 0 then
+				LimitAmmo = LimitAmmo - ArmCostList[i]	--弾薬ポイントから弾薬コストを減算
+			end
+		end
+		local h = _H(0);
+		local speed = _VZ(0);
+		if (0 < h and h < 2) and math.abs(speed) < 1.5 then
+			if isJetPlaneLimitAmmo then
+				LimitAmmo = LimitAmmo + 1;
+			else
+				LimitAmmo = LimitAmmo + 0.5;
+			end
+			if LimitAmmo > LimitAmmoMax then LimitAmmo = LimitAmmoMax; end
+		end
+	end
+end
+
+
+
+
+function main()
+
+
+
+
+LimitAmmoRegulation()	--弾薬制限関数
+
+	Base:Renew()	--これも角速度その他を求めるための準備
+			--「Base.wx/wy/wz」が角速度
+--[[
+※矢印＝飛行機
+　北
+　Z軸
+　│
+─↑─X軸　
+　│
+　南
+(上から飛行機を見た図)
+　上
+　Y軸
+　│
+─→─Z軸
+　│
+　下
+(横から飛行機を見た図)
+
+・おおざっぱな説明
+機首が下を向こうとした場合
+この方向の角速度
+　　 ＼
+　→　│
+　　 〆
+(横からｒｙ)
+x軸なので今回はBase.wxの数値がマイナス(正面から見て下向きの角速度)になる
+エレベータにこの数値を入れてAngleがマイナスなら上向きに機首が上がるようにする
+
+その結果
+1.下向き角速度発生
+2.Base.wxがマイナスに
+3.エレベータが動き、機首が上を向こうとする動作をする
+4.下向き角速度が解消され、まっすぐ飛ぶ
+
+	↓これを3つ分やってます
+]]
+TAM=TAM+(_KEY(0)-_KEY(1))*10
+YOM=YOM+(_KEY(2)-_KEY(3))*10
+RAM=RAM-(_KEY(4)-_KEY(6))*10
+	TATE   =    Base.wx*10 + TAM
+	YOKO   =    Base.wz*15 + YOM
+	RAD = Base.wy*-20 + RAM
+
+--[[アナログ対応
+	
+	TATE=TATE+_ANALOG(1)/100
+	YOKO=YOKO+_ANALOG(0)/100
+	RAD=RAD+_ANALOG(2)/-200
+]]
+
+
+--表示
+out(1,_FPS())
+vel=-_VZ(0)*3.6
+out(2,vel,"km/h")
+out(3,"Weight=",_WEIGHT())
+out(3,"Power=",ENGINE)
+out(4,"Ammo=",LimitAmmo)
+out(5,"PERA=",PERA)
+out(6,"Height=",_Y(0),"m")
+
+ENGINE=ENGINE+(_KEY(14)-_KEY(7))*10000
+if _KEYDOWN(10)>0 then ENGINE=0 end
+
+_ZOOM(ZOOM)
+ZOOM=ZOOM-(_KEY(15)-_KEY(16))*5
+
+        --２Ｄ照準
+　　　　_SETCOLOR(0)
+        _MOVE2D(0.1,0.1) _LINE2D(0.01,0.01)
+        _MOVE2D(-0.1,0.1) _LINE2D(-0.01,0.01)
+        _MOVE2D(-0.1,-0.1) _LINE2D(-0.01,-0.01)
+        _MOVE2D(0.1,-0.1) _LINE2D(0.01,-0.01)
+
+ _SETCOLOR(16777215)
+ _MOVE3D(_X(0),_Y(0),_Z(0))
+ _LINE3D(_X(0)+_ZX(0)*-1000,_Y(0)+_ZY(0)*-1000,_Z(0)+_ZZ(0)*-1000)
+
+ if _KEYDOWN(13)>0 then GEARS=GEARS*-1 end
+ if GEARS>0 then GEAR=GEAR+5 GEAR2=GEAR2-5 end
+ if GEARS<0 then GEAR=GEAR-5 GEAR2=GEAR2+5 end
+ if _KEY(11)>0 then AB=AB+5 BRAKE=BRAKE+5 end
+
+ if _KEY(5)>0 and LimitAmmo>0 then GUN=GUN+1 end
+ if LimitAmmo<=0 then GUN=0 end
+ if GUN>0 then ARM1=1600000 end
+ if GUN>2 then ARM2=1600000 end
+ if GUN>4 then ARM3=1600000 end
+
+ PERA=42+math.sqrt(-_VZ(0)*3.6)*1.5
+ if PERA>45 then PERA=42+math.sqrt(-_VZ(0)*3.6)*1.5
+ else PERA=45 end
+
+
+end
+}

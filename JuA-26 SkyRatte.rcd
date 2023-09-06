@@ -1,0 +1,474 @@
+// [RCD] 
+Val
+{
+	AIRBRAKE(default=180, min=100, max=180, step=10)
+	AR_1(default=0, min=-30, max=0)
+	AR_2(default=-30, min=-30, max=0)
+	AR_3(default=-30, min=-30, max=0)
+	AR_4(default=-30, min=-30, max=0)
+	AR_5(default=-30, min=-30, max=0)
+	AR_6(default=-30, min=-30, max=0)
+	BM(default=-1, min=-1, max=1)
+	BOMB(default=0, max=2)
+	BRAKE(default=0, max=100, step=10)
+	COL_TEAM(default=0)
+	COUNT(default=0, max=14)
+	ENGINE(default=0, min=-40000, max=300000)
+	FIRE_1(default=0, max=50000, step=50000)
+	FIRE_2(default=0, max=50000, step=50000)
+	FIRE_3(default=0, max=50000, step=50000)
+	FIRE_4(default=0, max=50000, step=50000)
+	FIRE_5(default=0, max=50000, step=50000)
+	FIRE_6(default=0, max=50000, step=50000)
+	FR_1(default=0, max=30)
+	FR_2(default=30, max=30)
+	FR_3(default=30, max=30)
+	FR_4(default=30, max=30)
+	FR_5(default=30, max=30)
+	FR_6(default=30, max=30)
+	GEAR(default=-1, min=-1, max=1)
+	LEG1(default=30, min=30, max=135)
+	LEG2(default=-80, min=-100, max=-80)
+	LEG3(default=-15, min=-180, max=-15)
+	LEG4(default=90, min=90, max=180)
+	PITCH(default=68, min=68, max=85)
+	RAD(default=0, min=-30, max=30, step=1)
+	TATE(default=0, min=-30, max=30, step=5)
+	YOKO(default=0, min=-10, max=10, step=1)
+	ZOOM(default=75, min=5, max=90)
+}
+Key
+{
+}
+Body
+{
+	Core(color=COL_TEAM, user2=801) {
+		S:Trim(angle=90) {
+			S:Weight(option=4) {
+				E:Chip(angle=-85) {
+					E:Rudder(angle=90) {
+						N:Chip() {
+							N:Chip() {
+								W:Wheel(angle=-90, power=-ENGINE) {
+									N:Trim(angle=-PITCH) { }
+									S:Trim(angle=-PITCH) { }
+									W:Trim(angle=-PITCH) { }
+									E:Trim(angle=-PITCH) { }
+								}
+								N:Trim(angle=YOKO) {
+									N:Rudder(angle=15) {
+										N:Cowl(color=#535353) { }
+									}
+								}
+								N:Cowl(angle=-90, color=#535353) {
+									N:Cowl(angle=-90, color=#535353) {
+										N:Cowl(angle=-90, color=#535353) {
+											E:Cowl(angle=-15, color=#535353) { }
+										}
+										E:Cowl(angle=-15, color=#535353) { }
+									}
+									E:Cowl(angle=-15, color=#535353) { }
+								}
+								E:Cowl(angle=-15, color=#535353) { }
+							}
+							N:Frame(angle=-65) {
+								N:Frame(angle=-LEG1) {
+									W:RudderF(angle=150, spring=0.1, damper=0.1) {
+										S:RLW(brake=BRAKE, color=#000000) { }
+									}
+								}
+							}
+						}
+					}
+					E:Trim(angle=YOKO) {
+						E:Rudder(angle=10) {
+							E:Cowl(option=5, color=#535353) { }
+						}
+					}
+					E:Cowl(angle=-75, color=#535353) {
+						E:Cowl(angle=-75, color=#535353) {
+							S:Cowl(angle=-15, color=#535353) {
+								S:Cowl(angle=-15, option=5, color=#535353) { }
+							}
+						}
+						S:Cowl(angle=-15, color=#535353) {
+							W:Cowl(angle=-75, color=#535353) {
+								S:Cowl(angle=-15, color=#535353) { }
+							}
+							S:Cowl(angle=-15, option=5, color=#535353) { }
+						}
+					}
+				}
+				E:Chip(angle=85) {
+					E:Rudder(angle=90) {
+						N:Chip() {
+							N:Chip() {
+								W:Wheel(angle=90, power=-ENGINE) {
+									S:Trim(angle=PITCH) { }
+									N:Trim(angle=PITCH) { }
+									W:Trim(angle=PITCH) { }
+									E:Trim(angle=PITCH) { }
+								}
+								N:Trim(angle=YOKO) {
+									N:Rudder(angle=15) {
+										N:Cowl(color=#535353) { }
+									}
+								}
+								N:Cowl(angle=90, color=#535353) {
+									N:Cowl(angle=90, color=#535353) {
+										N:Cowl(angle=90, color=#535353) {
+											E:Cowl(angle=15, color=#535353) { }
+										}
+										E:Cowl(angle=15, color=#535353) { }
+									}
+									E:Cowl(angle=15, color=#535353) { }
+								}
+								E:Cowl(angle=15, color=#535353) { }
+							}
+							N:Frame(angle=65) {
+								N:Frame(angle=LEG1) {
+									W:RudderF(angle=150, spring=0.1, damper=0.1) {
+										S:RLW(brake=BRAKE, color=#000000) { }
+									}
+								}
+							}
+						}
+					}
+					E:Trim(angle=YOKO) {
+						E:Rudder(angle=10) {
+							E:Cowl(option=5, color=#535353) { }
+						}
+					}
+					E:Cowl(angle=75, color=#535353) {
+						E:Cowl(angle=75, color=#535353) {
+							S:Cowl(angle=15, color=#535353) {
+								S:Cowl(angle=15, option=5, color=#535353) { }
+							}
+						}
+						S:Cowl(angle=15, color=#535353) {
+							W:Cowl(angle=75, color=#535353) {
+								S:Cowl(angle=15, color=#535353) { }
+							}
+							S:Cowl(angle=15, option=5, color=#535353) { }
+						}
+					}
+				}
+				S:Rudder(angle=15) {
+					S:Rudder(angle=-15) {
+						S:Chip() {
+							S:Chip() {
+								S:Chip() {
+									E:Chip(angle=90) {
+										E:Trim() {
+											E:Chip(angle=-90) {
+												S:Chip(angle=RAD) {
+													E:Cowl(color=#535353) { }
+												}
+												E:Cowl(option=3, color=#535353) { }
+											}
+											E:Chip(angle=90) {
+												S:Chip(angle=-RAD) { }
+											}
+											S:Chip(angle=TATE) { }
+										}
+										S:Chip(angle=TATE) { }
+									}
+									E:Chip(angle=-90) {
+										E:Trim() {
+											E:Chip(angle=90) {
+												S:Chip(angle=RAD) {
+													E:Cowl(color=#535353) { }
+												}
+												E:Cowl(option=3, color=#535353) { }
+											}
+											E:Chip(angle=-90) {
+												S:Chip(angle=-RAD) { }
+											}
+											S:Chip(angle=-TATE) { }
+										}
+										S:Chip(angle=-TATE) { }
+									}
+									N:RudderF(angle=LEG2, spring=0.1, damper=0.1) {
+										W:RLW(angle=RAD, brake=BRAKE, color=#000000) { }
+									}
+									S:Cowl(option=4, color=#535353) { }
+									S:Cowl(angle=170, color=#535353) {
+										S:Cowl(color=#535353) {
+											S:Cowl(color=#535353) {
+												S:Cowl(color=#535353) { }
+												E:Cowl(angle=90, option=3, color=#535353) { }
+												W:Cowl(angle=90, option=4, color=#535353) { }
+											}
+										}
+									}
+									S:Cowl(angle=-170, color=#535353) {
+										S:Cowl(color=#535353) {
+											S:Cowl(color=#535353) {
+												S:Cowl(color=#535353) { }
+												E:Cowl(angle=-90, option=3, color=#535353) { }
+												W:Cowl(angle=-90, option=4, color=#535353) { }
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				N:Chip(angle=AIRBRAKE) { }
+				N:Chip(angle=-AIRBRAKE) { }
+			}
+		}
+		W:TrimF(angle=90) {
+			W:Arm(angle=-90, power=FIRE_1, option=50000, name=2) { }
+			N:Arm(angle=-90, power=FIRE_2, option=50000, name=3) { }
+			S:Arm(angle=-90, power=FIRE_3, option=50000, name=1) { }
+		}
+		E:TrimF(angle=-90) {
+			E:Arm(angle=-90, power=FIRE_1, option=50000, name=5) { }
+			S:Arm(angle=-90, power=FIRE_2, option=50000, name=4) { }
+			N:Arm(angle=-90, power=FIRE_3, option=50000, name=6) { }
+		}
+		W:Weight(angle=150) { }
+		E:Weight(angle=150) { }
+		S:Cowl(angle=75, color=#535353) {
+			S:Cowl(angle=-75, color=#535353) {
+				S:Cowl(color=#535353) {
+					S:Cowl(angle=-15, color=#535353) {
+						S:Cowl(angle=15, color=#535353) { }
+					}
+				}
+				E:Cowl(angle=-45, color=#535353) {
+					E:Cowl(angle=-60, color=#535353) {
+						N:Cowl(angle=-15, color=#535353) {
+							N:Cowl(angle=-15, option=4, color=#535353) { }
+							E:Cowl(angle=-60, option=3, color=#535353) {
+								S:Cowl(angle=-15, color=#535353) { }
+							}
+						}
+					}
+					N:Cowl(angle=-15, color=#535353) {
+						N:Cowl(angle=-15, option=4, color=#535353) { }
+					}
+				}
+				W:Cowl(angle=-45, color=#535353) {
+					W:Cowl(angle=-60, color=#535353) {
+						N:Cowl(angle=-15, color=#535353) {
+							N:Cowl(angle=-30, option=3, color=#535353) { }
+							W:Cowl(angle=-60, option=4, color=#535353) {
+								S:Cowl(angle=-15, color=#535353) { }
+							}
+						}
+					}
+					N:Cowl(angle=-15, color=#535353) {
+						N:Cowl(angle=-15, option=3, color=#535353) { }
+					}
+				}
+				N:Cowl(angle=-15, color=#535353) {
+					N:Cowl(angle=-15, color=#535353) { }
+				}
+			}
+			N:Cowl(angle=-45, color=#535353) {
+				N:Cowl(angle=105, effect=#A0FB) {
+					N:Cowl(angle=30, effect=#A0FB) {
+						N:Cowl(angle=30, effect=#A0FB) {
+							N:Cowl(angle=105, effect=#A0FB) { }
+						}
+						W:Cowl(angle=60, effect=#A0FB) {
+							N:Cowl(angle=30, option=5, effect=#A0FB) { }
+							S:Cowl(angle=45, option=5, effect=#A0FB) { }
+						}
+						E:Cowl(angle=60, effect=#A0FB) {
+							S:Cowl(angle=45, option=5, effect=#A0FB) { }
+							N:Cowl(angle=30, option=5, effect=#A0FB) { }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+Lua
+{
+require("cel/science/BasePhysic.lua")	--これが例の角速度その他を求めるLua　借り物
+Base = BasePhysic.new(CN_BASE)		--角速度を求めるための準備　「CN_BASE」はChip名　現在はコア
+
+LimitAmmo = 0		--自機の持つ残り弾薬ポイント。残弾表示やフラグに使ってください。
+LimitAmmoMax = 0;
+isJetPlaneLimitAmmo = false--ジェット機ならtrueに汁
+isLimitAmmoInitialized = false;--内部的な初期化フラグ。いじったらだめーよｗ
+Cost100k = 12		--100k(Option=100000)以上のARMの弾薬コスト
+Cost50k = 2		--50k以上100k未満の弾薬コスト
+ListChipType = {}	--ARMのチップ番号を格納
+ArmCostList = {} --発見されたArmのコストを順に収納
+function LimitAmmoRegulation()	--弾薬制限関数
+	--初期設定
+	if not isLimitAmmoInitialized then
+		--重量に応じて弾薬ポイントを決定
+		if isJetPlaneLimitAmmo then
+			LimitAmmo = 1200
+		else
+			if _WEIGHT() >= 1100 then
+				LimitAmmo = 350
+			end
+		end
+		LimitAmmoMax= LimitAmmo
+		local chipNum = _CHIPS() - 1
+		for i = 1, chipNum do
+			--ARMチェック
+			if _TYPE(i) == 10 then
+				--50kの場合、100kの場合でそれぞれ弾薬コストを格納
+				if _OPTION(i) == 50000 then
+					table.insert(ListChipType, i)
+					table.insert(ArmCostList, Cost50k)
+				elseif _OPTION(i) >= 100000 then
+					table.insert(ListChipType, i)
+					table.insert(ArmCostList, Cost100k)
+				end
+			end 
+		end
+		isLimitAmmoInitialized = true
+	elseif _TICKS() > 150 then
+		--発射カウント
+		local n = table.getn(ListChipType)
+		for i = 1, n do
+			--発射判定
+			if _E(ListChipType[i]) == 0 and _TOP(ListChipType[i]) == 0 then
+				LimitAmmo = LimitAmmo - ArmCostList[i]	--弾薬ポイントから弾薬コストを減算
+			end
+		end
+		local h = _H(0);
+		local speed = _VZ(0);
+		if (0 < h and h < 2) and math.abs(speed) < 1.5 then
+			if isJetPlaneLimitAmmo then
+				LimitAmmo = LimitAmmo + 1;
+			else
+				LimitAmmo = LimitAmmo + 0.5;
+			end
+			if LimitAmmo > LimitAmmoMax then LimitAmmo = LimitAmmoMax; end
+		end
+	end
+end
+
+
+
+
+function main()
+
+
+
+
+LimitAmmoRegulation()	--弾薬制限関数
+
+	Base:Renew()	--これも角速度その他を求めるための準備
+			--「Base.wx/wy/wz」が角速度
+--[[
+※矢印＝飛行機
+　北
+　Z軸
+　│
+─↑─X軸　
+　│
+　南
+(上から飛行機を見た図)
+　上
+　Y軸
+　│
+─→─Z軸
+　│
+　下
+(横から飛行機を見た図)
+
+・おおざっぱな説明
+機首が下を向こうとした場合
+この方向の角速度
+　　 ＼
+　→　│
+　　 〆
+(横からｒｙ)
+x軸なので今回はBase.wxの数値がマイナス(正面から見て下向きの角速度)になる
+エレベータにこの数値を入れてAngleがマイナスなら上向きに機首が上がるようにする
+
+その結果
+1.下向き角速度発生
+2.Base.wxがマイナスに
+3.エレベータが動き、機首が上を向こうとする動作をする
+4.下向き角速度が解消され、まっすぐ飛ぶ
+
+	↓これを3つ分やってます
+]]
+
+	TATE   =    Base.wx*2 + (_KEY(0)-_KEY(1))*30 
+	YOKO   =    Base.wz*2 + (_KEY(2)-_KEY(3))*20
+	RAD = Base.wy*2 + (_KEY(4)-_KEY(6))*-15
+
+--[[アナログ対応
+	
+	TATE=TATE+_ANALOG(1)/100
+	YOKO=YOKO+_ANALOG(0)/100
+	RAD=RAD+_ANALOG(2)/-200
+]]
+
+
+--表示
+out(1,_FPS())
+vel=-_VZ(0)*3.6
+out(2,vel,"km/h")
+out(3,"Weight=",_WEIGHT())
+out(4,"Power=",ENGINE)
+out(5,"Ammo=",LimitAmmo)
+out(6,"Height=",_Y(0))
+
+
+
+_ZOOM(ZOOM)
+ZOOM=ZOOM-(_KEY(15)-_KEY(16))*5
+
+        --２Ｄ照準
+　　　　_SETCOLOR(0)
+        _MOVE2D(0.1,0.1) _LINE2D(0.01,0.01)
+        _MOVE2D(-0.1,0.1) _LINE2D(-0.01,0.01)
+        _MOVE2D(-0.1,-0.1) _LINE2D(-0.01,-0.01)
+        _MOVE2D(0.1,-0.1) _LINE2D(0.01,-0.01)
+
+ _SETCOLOR(16777215)
+ _MOVE3D(_X(0),_Y(0),_Z(0))
+ _LINE3D(_X(0)+_ZX(0)*-1000,_Y(0)+_ZY(0)*-1000,_Z(0)+_ZZ(0)*-1000)
+
+--足
+if _KEYDOWN(13)>0 then GEAR=GEAR*-1 end
+LEG1=LEG1+GEAR*5 LEG2=LEG2-GEAR*15 LEG3=LEG3+GEAR*15 LEG4=LEG4-GEAR*15 
+BRAKE=BRAKE+_KEY(11)*10
+AIRBRAKE=AIRBRAKE-_KEY(10)*10
+
+
+--30mm機関銃「Valcast2000」
+    if _KEY(5)==1 and COUNT<12 then COUNT=COUNT+1 end
+    if COUNT==12 then COUNT=0 end
+    if COUNT==0 then AR_6=-30 FR_6=30 AR_1=0 FR_1=0 end
+    if COUNT==1 and _KEY(5)>0 then FIRE_1=50000 end
+    if COUNT==2 then AR_1=-30 FR_1=30 AR_2=0 FR_2=0 end
+    if COUNT==3 and _KEY(5)>0 then FIRE_2=50000 end
+    if COUNT==4 then AR_2=-30 FR_2=30 AR_3=0 FR_3=0 end
+    if COUNT==5 and _KEY(5)>0 then FIRE_3=50000 end
+    if COUNT==6 then AR_3=-30 FR_3=30 AR_1=0 FR_1=0 end
+    if LimitAmmo<=0 then COUNT=13 end
+    if LimitAmmo>0 and COUNT==13 then COUNT=0 
+    AR_1=-30 FR_1=30 AR_2=-30 FR_2=30 AR_3=-30 FR_3=30 AR_4=-30 FR_4=30 AR_5=-30 FR_5=30 AR_6=-30 FR_6=30 end
+
+
+_ZOOM(ZOOM)
+
+--試作一号エンジン「Easyheart Mk.2」
+    PERA=-_VZ(0)*0.1
+    PITCH=68+PERA
+    ENGINE=ENGINE+(_KEY(14)-_KEY(7))*10000
+    if _KEYDOWN(12)>0 then ENGINE=0 end
+
+--BOMBING
+    if _KEYDOWN(12)>0 then BM=BM*-1 end
+    if BM==1 then
+
+    end
+
+end}
